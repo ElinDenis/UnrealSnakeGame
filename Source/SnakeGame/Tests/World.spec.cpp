@@ -12,8 +12,8 @@
 #include "Tests/Utils/TestUtils.h"
 #include "World/SG_Grid.h"
 
-BEGIN_DEFINE_SPEC(FSnakeWorld, "Category",
-    EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter | EAutomationTestFlags::HighPriority)
+BEGIN_DEFINE_SPEC(
+    FSnakeWorld, "Category", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter | EAutomationTestFlags::HighPriority)
 
 UWorld* World;
 
