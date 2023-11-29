@@ -10,8 +10,8 @@
 #include "Framework/SG_GameMode.h"
 #include "Framework/SG_Pawn.h"
 
-BEGIN_DEFINE_SPEC(FSnakeFramework, "Snake",
-    EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter | EAutomationTestFlags::HighPriority)
+BEGIN_DEFINE_SPEC(
+    FSnakeFramework, "Snake", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter | EAutomationTestFlags::HighPriority)
 
 UWorld* World;
 

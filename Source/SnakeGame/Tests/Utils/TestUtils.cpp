@@ -78,8 +78,8 @@ int32 GetAxisBindingIndexByName(UInputComponent* InputComp, const FString& AxisN
 {
     if (!InputComp) return INDEX_NONE;
 
-    const int32 AxisIndex = InputComp->AxisBindings.IndexOfByPredicate(
-        [=](const FInputAxisBinding& AxisBind) { return AxisBind.AxisName.ToString().Equals(AxisName); });
+    const int32 AxisIndex =
+        InputComp->AxisBindings.IndexOfByPredicate([=](const FInputAxisBinding& AxisBind) { return AxisBind.AxisName.ToString().Equals(AxisName); });
 
     return AxisIndex;
 }
@@ -142,10 +142,7 @@ void FTakeScreenshotLatentCommand::OnScreenshotTakenAndCompared()
     CommandCompleted = true;
 }
 
-FTakeGameScreenshotLatentCommand::FTakeGameScreenshotLatentCommand(const FString& InScreenshotName)
-    : FTakeScreenshotLatentCommand(InScreenshotName)
-{
-}
+FTakeGameScreenshotLatentCommand::FTakeGameScreenshotLatentCommand(const FString& InScreenshotName) : FTakeScreenshotLatentCommand(InScreenshotName) {}
 
 bool FTakeGameScreenshotLatentCommand::Update()
 {
@@ -158,10 +155,7 @@ bool FTakeGameScreenshotLatentCommand::Update()
     return CommandCompleted;
 }
 
-FTakeUIScreenshotLatentCommand::FTakeUIScreenshotLatentCommand(const FString& InScreenshotName)
-    : FTakeScreenshotLatentCommand(InScreenshotName)
-{
-}
+FTakeUIScreenshotLatentCommand::FTakeUIScreenshotLatentCommand(const FString& InScreenshotName) : FTakeScreenshotLatentCommand(InScreenshotName) {}
 
 bool FTakeUIScreenshotLatentCommand::Update()
 {
@@ -191,8 +185,7 @@ void FTakeUIScreenshotLatentCommand::SetBufferVisualization(const FName& Visuali
 {
     if (UGameViewportClient* ViewportClient = GEngine->GameViewport)
     {
-        static IConsoleVariable* ICVar =
-            IConsoleManager::Get().FindConsoleVariable(FBufferVisualizationData::GetVisualizationTargetConsoleCommandName());
+        static IConsoleVariable* ICVar = IConsoleManager::Get().FindConsoleVariable(FBufferVisualizationData::GetVisualizationTargetConsoleCommandName());
         if (ICVar)
         {
             if (ViewportClient->GetEngineShowFlags())

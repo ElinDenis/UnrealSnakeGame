@@ -8,8 +8,7 @@
 // Project class include
 #include "Core/Grid.h"
 
-DEFINE_SPEC(FSnakeGrid, "Snake",
-    EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter | EAutomationTestFlags::HighPriority)
+DEFINE_SPEC(FSnakeGrid, "Snake", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter | EAutomationTestFlags::HighPriority)
 
 void FSnakeGrid::Define()
 {

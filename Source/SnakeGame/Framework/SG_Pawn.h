@@ -18,11 +18,11 @@ public:
     ASG_Pawn();
 
     /**
-    * Updates pawn height fitting grid in viewport
-    * @param Dim  grid dimensions
-    * @param CellSize  world size of the cell
-    * @param GridOrigin  world transformation of the grid
-    */
+     * Updates pawn height fitting grid in viewport
+     * @param Dim  grid dimensions
+     * @param CellSize  world size of the cell
+     * @param GridOrigin  world transformation of the grid
+     */
     void UpdateLocation(const Snake::Dim& Dim, int32 CellSize, const FTransform& GridOrigin);
 
 protected:
