@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Misc/AutomationTest.h"
+#include "Misc/PathViews.h"
 
 // Project class include
 #include "Tests/Utils/TestUtils.h"
@@ -24,6 +25,31 @@ void FSnakeFramework::Define()
     Describe("Framework",
         [this]()
         {
+            It("GameMapMightExist",
+                [this]()
+                {
+                    const TArray<FString> SnakeGameMaps = {"GameLevel"};
+
+                    TArray<FString> AllProjectMaps;
+                    IFileManager::Get().FindFilesRecursive(AllProjectMaps, *FPaths::ProjectConfigDir(), TEXT("*.umap"), true, false);
+
+                    for (const auto& SnakeGameMap : AllProjectMaps)
+                    {
+                        const bool SnakeMapExists = AllProjectMaps.ContainsByPredicate(
+                            [&](const FString& ProjectMap)
+                            {
+                                FStringView OutPath, OutName, OutExt;
+                                FPathViews::Split(FStringView(ProjectMap), OutPath, OutName, OutExt);
+                                return SnakeGameMap.Equals(FString(OutName));
+                            });
+                        TestTrueExpr(SnakeMapExists);
+                    }
+                });
+        });
+
+    Describe("Framework",
+        [this]()
+        {
             BeforeEach(
                 [this]()
                 {
@@ -31,7 +57,6 @@ void FSnakeFramework::Define()
                     World = GetTestGameWorld();
                 });
 
-            It("GameMapMightExist", [this]() { TestNotNull("World exist", World); });
             It("ClassesMightBeSetupCorrectly",
                 [this]()
                 {
