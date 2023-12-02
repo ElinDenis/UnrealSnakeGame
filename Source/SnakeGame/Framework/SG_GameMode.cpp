@@ -19,8 +19,8 @@ void ASG_GameMode::StartPlay()
     Super::StartPlay();
 
     // Init core game
-    const Snake::Settings GS{GridDims.X, GridDims.Y};
-    Game = MakeUnique<Snake::Game>(GS);
+    const SnakeGame::Settings GS{GridDims.X, GridDims.Y};
+    Game = MakeUnique<SnakeGame::Game>(GS);
     check(Game.IsValid());
 
     // Init world grid

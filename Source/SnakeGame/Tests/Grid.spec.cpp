@@ -12,7 +12,7 @@ DEFINE_SPEC(FSnakeGrid, "Snake", EAutomationTestFlags::ApplicationContextMask | 
 
 void FSnakeGrid::Define()
 {
-    using namespace Snake;
+    using namespace SnakeGame;
 
     Describe("CoreGrid", [this]() {  //
         It("DimsMightIncludeWalls",
